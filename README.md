@@ -14,7 +14,7 @@ How to setup Okta is detailed in the docs for `rtr-react-okta-auth`
 This app is a `create-react-app` app.
 
 ## The App
-The same name menu items are presented twice.
+The same nav menu items are presented twice.
 1. In the main nav bar, the nav items are hidden correctly as per the user-okta-groups (authorization) to which the authenticated user is assigned.
 2. In the area below the nav bar, the same links are presented again but this time they're always rendered irrespective of authentication or authorization..
 3. Clicking on them demonstrates what happens when an unauthenticated or unauthorized user exercies the links/routes.
