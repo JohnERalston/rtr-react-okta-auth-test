@@ -1,6 +1,6 @@
 import React, { FC, useContext } from "react";
 import { IEmptyProps } from "./models/IEmptyProps";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { Security, ImplicitCallback } from "@okta/okta-react";
 import NavButtonsSecure from "./components/NavBarSecure";
 import Home from "./pages/Home";
@@ -13,7 +13,10 @@ import {
   AuthContextProvider,
   useAuthContextState,
   RouteWhenMemberOfAny,
-  withAuthAwareness
+  RouteWhenHasClaim,
+  withAuthAwareness,
+  RouteWhenHasAnyClaims,
+  RouteWhenHasAllClaims
 } from "rtr-react-okta-auth";
 
 import OKTA_CONfIG from './OKTA-CONSTANTS-REQUIRED';
@@ -29,6 +32,9 @@ const config = {
 const AppInner: FC<IEmptyProps> = () => {
   const authContextState = useContext<IAuthContext>(AuthContext);
   const groups = authContextState.groups.join(", ");
+  const Redir = function() {
+    return <Redirect to="/yieks" />;
+  }
 
   return (
     <>
@@ -43,8 +49,14 @@ const AppInner: FC<IEmptyProps> = () => {
           exact={true}
           component={Standard}
         />
-        <RouteWhenMemberOfAny
+        {/* <RouteWhenMemberOfAny
           groups={["admin"]}
+          path="/admin"
+          exact={true}
+          component={Admin}
+        /> */}
+        <RouteWhenHasAllClaims
+          claims={["CanDoA"]}
           path="/admin"
           exact={true}
           component={Admin}
@@ -54,7 +66,7 @@ const AppInner: FC<IEmptyProps> = () => {
   );
 };
 
-const AuthApp = withAuthAwareness(AppInner);
+const AuthApp = withAuthAwareness(AppInner, );
 
 const App: FC<IEmptyProps> = props => {
   const authContextState = useAuthContextState();

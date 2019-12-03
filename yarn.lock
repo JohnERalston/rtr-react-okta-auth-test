@@ -9601,9 +9601,9 @@ rsvp@^4.8.4:
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
   integrity sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==
 
-"rtr-react-okta-auth@file:./rtr-react-okta-auth-0.1.0.tgz":
+"rtr-react-okta-auth@file:./rtr-react-okta-auth-0.1.0_1.tgz":
   version "0.1.0"
-  resolved "file:./rtr-react-okta-auth-0.1.0.tgz#2b56836826662b86edf1ed633e271563230e9c57"
+  resolved "file:./rtr-react-okta-auth-0.1.0_1.tgz#045d2c85b334c4f7edf66aa78cdd8a960acf7b36"
   dependencies:
     "@okta/okta-react" "^1.2.3"
 
