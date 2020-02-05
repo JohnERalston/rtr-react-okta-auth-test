@@ -1,11 +1,12 @@
 import React, { FC, useContext } from "react";
 import { IEmptyProps } from "./models/IEmptyProps";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Security, ImplicitCallback } from "@okta/okta-react";
 import NavButtonsSecure from "./components/NavBarSecure";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import Standard from "./pages/Standard";
+import ViewOrder from "./pages/ViewOrder";
 import NavButtonsUnsecure from "./components/NavButtonsUnsecure";
 import {
   AuthContext,
@@ -16,10 +17,13 @@ import {
   RouteWhenHasClaim,
   withAuthAwareness,
   RouteWhenHasAnyClaims,
-  RouteWhenHasAllClaims
-} from "rtr-react-okta-auth";
+  RouteWhenHasAllClaims,
+  RouteWhen
+} from "@rent-the-runway/rtr-react-okta-auth";
 
-import OKTA_CONfIG from './OKTA-CONSTANTS-REQUIRED';
+import OKTA_CONfIG from "./OKTA-CONSTANTS-REQUIRED";
+import { getPermissions, permissions } from "./permissionsProvider";
+import IssuePromoCode from "./pages/IssuePromoCode";
 
 const authCallbackUrl = "/implicit/callback";
 const config = {
@@ -31,42 +35,60 @@ const config = {
 
 const AppInner: FC<IEmptyProps> = () => {
   const authContextState = useContext<IAuthContext>(AuthContext);
-  const groups = authContextState.groups.join(", ");
-  const Redir = function() {
-    return <Redirect to="/yieks" />;
+  const availableGroups = authContextState.groups.join(", ");
+  const availablePermissions = getPermissions(authContextState.groups).join(
+    ", "
+  );
+
+  function hasPermission(permission: string) {
+    const permissions = getPermissions(authContextState.groups);
+    return permissions.includes(permission);
   }
 
   return (
-    <>
-      <NavButtonsSecure />
+    <div className="mb-5">
+      
       <div className="container">
-        <div>GROUPS: {groups}</div>
-        <NavButtonsUnsecure />
+
+      <div className="border round p-1 mb-1">GROUPS: {availableGroups}</div>
+        <div className="border round p-1 mb-1">
+          PERMISSIONS: {availablePermissions}
+        </div>
+
         <Route path="/" exact={true} component={Home} />
+
         <RouteWhenMemberOfAny
           groups={["standard", "admin"]}
           path="/standard"
           exact={true}
           component={Standard}
         />
-        {/* <RouteWhenMemberOfAny
+        <RouteWhenMemberOfAny
           groups={["admin"]}
           path="/admin"
           exact={true}
           component={Admin}
-        /> */}
-        <RouteWhenHasAllClaims
-          claims={["CanDoA"]}
-          path="/admin"
+        />
+
+        <RouteWhen
+          isTrue={() => hasPermission(permissions.canViewOrder)}
+          path="/view-order"
           exact={true}
-          component={Admin}
+          component={ViewOrder}
+        />
+
+        <RouteWhen
+          isTrue={() => hasPermission(permissions.canIssuePromoCode)}
+          path="/issue-promo-code"
+          exact={true}
+          component={IssuePromoCode}
         />
       </div>
-    </>
+    </div>
   );
 };
 
-const AuthApp = withAuthAwareness(AppInner, );
+const AuthApp = withAuthAwareness(AppInner);
 
 const App: FC<IEmptyProps> = props => {
   const authContextState = useAuthContextState();
@@ -82,6 +104,5 @@ const App: FC<IEmptyProps> = props => {
     </AuthContextProvider>
   );
 };
-
 
 export default App;

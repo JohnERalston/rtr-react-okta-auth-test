@@ -8,6 +8,8 @@
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
+    "@okta/okta-react": "^1.4.0",
+    "@rent-the-runway/rtr-react-okta-auth": "file:./rent-the-runway-rtr-react-okta-auth-v1.0.2_cb1.tgz",
     "@testing-library/jest-dom": "^4.2.3",
     "@testing-library/react": "^9.3.2",
     "@types/jest": "24.0.22",
@@ -22,8 +24,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "ts-jest": "^24.1.0",
-    "typescript": "3.7.2",
-    "rtr-react-okta-auth": "file:./rtr-react-okta-auth-0.1.0.tgz"
+    "typescript": "3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",

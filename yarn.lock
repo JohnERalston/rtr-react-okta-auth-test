@@ -1803,10 +1803,10 @@
   resolved "https://registry.yarnpkg.com/@okta/configuration-validation/-/configuration-validation-0.4.1.tgz#6fa4520bc96c27b3d7aedcb0523de1fbceee9105"
   integrity sha512-p8QcApCSyAXtlyB7p7jXkAkcTedvK9WFkmEduVA3XxQQVs3njxD9vTooFj4+AF6WNRIuGOis/utL7m0BzYkyVw==
 
-"@okta/okta-auth-js@^2.6.3":
-  version "2.10.1"
-  resolved "https://registry.yarnpkg.com/@okta/okta-auth-js/-/okta-auth-js-2.10.1.tgz#9a33015dbe0c22de237e9ca7f04e2174888dfe51"
-  integrity sha512-cQQ0uK47TngbrsCLe8cMZQ+bq3HwEHTj8OMSxYa+ZbNLGow0BQUqYcf4KBAMEnnhU+TbFw/FXsKULGL99R0eWw==
+"@okta/okta-auth-js@^2.11.2":
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/@okta/okta-auth-js/-/okta-auth-js-2.13.0.tgz#75858a644a08b080341cbf6ac86a63b23739ee58"
+  integrity sha512-0h98/ceSmcyfpK8K8pIil3e//hC5W45uBh9CwL3I0CkcxEwmfmbGE0o59hiTDKqaZh9teVT584qIVbN6k3nL6A==
   dependencies:
     Base64 "0.3.0"
     cross-fetch "^3.0.0"
@@ -1817,15 +1817,19 @@
     tiny-emitter "1.1.0"
     xhr2 "0.1.3"
 
-"@okta/okta-react@^1.2.3":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@okta/okta-react/-/okta-react-1.2.3.tgz#113057a724a5f779f26187d6e7b603e0b8645ac8"
-  integrity sha512-t90/4SF0svpaVCEjbbUyr9pW0pXGMZuDvms53lIp30b8Rk78uV1MSEqjbLuHGw+ai7twdJCxvAaA/YwXO+EOfA==
+"@okta/okta-react@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@okta/okta-react/-/okta-react-1.4.0.tgz#4c0cca469880c62c0afe2c841f53f35bbbcc88e8"
+  integrity sha512-DCLAFHvOQEYBgHhULTRS/fQtbWaD9XQKgeJF8nuxVbW1liL5Qqua44vpw9txlRB8nrkxupR8IqUIkKsEkNtHPg==
   dependencies:
     "@okta/configuration-validation" "^0.4.1"
-    "@okta/okta-auth-js" "^2.6.3"
+    "@okta/okta-auth-js" "^2.11.2"
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
+
+"@rent-the-runway/rtr-react-okta-auth@file:./rent-the-runway-rtr-react-okta-auth-v1.0.2_cb1.tgz":
+  version "1.0.2"
+  resolved "file:./rent-the-runway-rtr-react-okta-auth-v1.0.2_cb1.tgz#3985d27ef087c4405dc8be61969b683da06a74bb"
 
 "@restart/context@^2.1.4":
   version "2.1.4"
@@ -9600,12 +9604,6 @@ rsvp@^4.8.4:
   version "4.8.5"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
   integrity sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==
-
-"rtr-react-okta-auth@file:./rtr-react-okta-auth-0.1.0_1.tgz":
-  version "0.1.0"
-  resolved "file:./rtr-react-okta-auth-0.1.0_1.tgz#045d2c85b334c4f7edf66aa78cdd8a960acf7b36"
-  dependencies:
-    "@okta/okta-react" "^1.2.3"
 
 run-async@^2.2.0:
   version "2.3.0"

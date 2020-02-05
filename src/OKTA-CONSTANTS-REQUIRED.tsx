@@ -1,7 +1,7 @@
 
 const OKTA_CONFIG = {
-    issuerId: "<part of the okta url here>",
-    clientId: "<secret key here>"
+    issuerId: "265635",
+    clientId: "0oa1sv09b0jj3YTkG357"
 };
 
 export default OKTA_CONFIG;
