@@ -1827,9 +1827,10 @@
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
 
-"@rent-the-runway/rtr-react-okta-auth@file:./rent-the-runway-rtr-react-okta-auth-v1.0.2_cb1.tgz":
+"@rent-the-runway/rtr-react-okta-auth@^1.0.2":
   version "1.0.2"
-  resolved "file:./rent-the-runway-rtr-react-okta-auth-v1.0.2_cb1.tgz#3985d27ef087c4405dc8be61969b683da06a74bb"
+  resolved "https://registry.yarnpkg.com/@rent-the-runway/rtr-react-okta-auth/-/rtr-react-okta-auth-1.0.2.tgz#f7f60868479aacee62bfe967e915ba63f363c720"
+  integrity sha512-3bvd2utK5sn/6ElNrf2S0k0Ez37Hz8UX8axx8SsKKzWzRqI3XgiYaGNexzVtyhqY3n2Fpi5bC4MIYLwYL5weKw==
 
 "@restart/context@^2.1.4":
   version "2.1.4"
